@@ -4,42 +4,27 @@ import psycopg2
 import urlparse
 from moodle import main
 from slackclient import SlackClient
-<<<<<<< HEAD
 import slackweb
-from Crypto.Cipher import AES
-import base64
+
 
 slack = slackweb.Slack(url="i_wont_give_you_my_url_:|")
-=======
-from slacker import Slacker
->>>>>>> origin/master
+
 
 
 def remind():
      conn = psycopg2.connect(
-<<<<<<< HEAD
+
             database='a',
             user='a',
             password='a',
             host='p',
             port='r'
-=======
-            database='d',
-            user='a',
-            password='a',
-            host='evq',
-            port='21'
->>>>>>> origin/master
 
         )
      cur = conn.cursor()
      
      cur.execute("SELECT * from users")
      rows = cur.fetchall()
-<<<<<<< HEAD
-
-     
-
 
      for row in rows:
          mylist = str(row[2]).split(',')
@@ -62,18 +47,5 @@ def remind():
         
          channelname="@"+username
          slack.notify(text=data, channel=channelname, username="moodler")
-=======
-     
-     token = "You cant use my token :P"
-     slack = Slacker(token)
-     
-     for row in rows:
-     
-         data=main(str(row[2]))
-  
-         channel="#"+str(row[4])
-         slack.chat.post_message(channel, str(data),username='moodler')
->>>>>>> origin/master
-         
      conn.commit()
      conn.close()
