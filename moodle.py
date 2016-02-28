@@ -4,12 +4,19 @@ from bs4 import BeautifulSoup
 
 
 def main(text):
+<<<<<<< HEAD
    
+=======
+    #print text
+>>>>>>> origin/master
     mylist = text.split(',')
     username = mylist[0]
     password = mylist[1]
     batch=mylist[2].upper()
+<<<<<<< HEAD
     
+=======
+>>>>>>> origin/master
     URL = 'http://moodle.spit.ac.in/login/index.php'
 
     login_data = {
@@ -22,12 +29,19 @@ def main(text):
     s.post(URL, login_data)
 
     r = s.get('http://moodle.spit.ac.in/calendar/view.php', timeout=5)
+<<<<<<< HEAD
     
+=======
+>>>>>>> origin/master
 
     soup = BeautifulSoup((r.text).encode('utf-8'),"lxml")
 
     soup = soup.findAll('table', {"class": "event"})
+<<<<<<< HEAD
    
+=======
+    # print(str(soup))
+>>>>>>> origin/master
     i = 0
     sr = ''
     soup = str(soup).replace("\\n", "")
@@ -41,7 +55,11 @@ def main(text):
     sr = sr.replace(',', ' ')
     sr = sr.replace('[', ' ')
     sr = sr.replace(']', ' ')
+<<<<<<< HEAD
    
+=======
+    
+>>>>>>> origin/master
     flag = 1
     pr = 0
     final = ''
@@ -56,17 +74,26 @@ def main(text):
         else:
 
             if flag == 1:
+<<<<<<< HEAD
                 #print line
+=======
+                
+>>>>>>> origin/master
                 if 'Batch' in line or 'batch' in line:
                     rbatch = line.replace('-', ' ')
                     rbatch = rbatch.replace('.', ' ')
                     
                     wordList = re.sub("[^\w]", " ",  rbatch).split()
+<<<<<<< HEAD
                     
+=======
+                   
+>>>>>>> origin/master
                     for a in wordList:
 
                         if len(a)==1:
                             a=a.upper()
+<<<<<<< HEAD
                            
                             if batch in a or a in batch:
                                 
@@ -74,6 +101,15 @@ def main(text):
                                
                                 final = final + '\n -------------------------------------------------------\n'
                            
+=======
+                            
+                            if batch in a or a in batch:
+                                
+                                pr = 1
+                                
+                                final = final + '\n -------------------------------------------------------\n'
+                            
+>>>>>>> origin/master
                             else:
                                 pr = 0
 
@@ -83,8 +119,14 @@ def main(text):
                 flag = 0
             if pr == 1:
                 final = final + '\n' + str(line)
+<<<<<<< HEAD
     return str(final)
    
+=======
+    
+    return str(final)
+    
+>>>>>>> origin/master
 
 
 

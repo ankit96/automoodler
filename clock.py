@@ -10,10 +10,15 @@ import logging
 logging.basicConfig()
 sched = BlockingScheduler()
 
+<<<<<<< HEAD
 @sched.scheduled_job('cron', day_of_week='mon-sun', hour=11, minute=25)
 
 def scheduled_job():
     print 'This job is run every minute.'
+=======
+@sched.scheduled_job('cron', day_of_week='mon-sun', hour=7 , minute=55)
+def scheduled_job():
+>>>>>>> origin/master
     remind()
 
 sched.start()
