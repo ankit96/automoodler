@@ -1,0 +1,11 @@
+{
+  "name": "automoodler",
+  "description": "Get submission automated reminders right there in your Slack",
+  "keyword": [
+    "slack",
+    "python",
+    "web",
+    "moodlereminder"
+  ],
+  "repository": "https://github.com/ankit96/automoodler"
+}
